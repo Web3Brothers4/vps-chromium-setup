@@ -4,11 +4,9 @@
 GREEN="\033[0;32m"     # Green
 YELLOW="\033[1;33m"    # Bright Yellow
 NC="\033[0m"           # No Color
-
 # Install prerequisites
 echo -e "${YELLOW}Installing Dependencies...${NC}"
-sudo apt install -y curl ca-certificates
-
+sudo apt install -y curl ca-certificate
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; then
     echo -e "${YELLOW}Installing Docker...${NC}"
