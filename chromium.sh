@@ -20,7 +20,7 @@ echo -e "${CYAN}==============================${RESET}"
 
 
 # Ask the user to follow on Twitter
-echo "Please follow us at: https://x.com/0xSabie"
+echo "Please follow us at: https://x.com/web3brothers"
 read -p "Have you followed us? (yes/no): " followed
 
 if [[ "$followed" != "yes" ]]; then
