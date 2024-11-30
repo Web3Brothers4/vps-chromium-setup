@@ -4,9 +4,24 @@
 GREEN="\033[0;32m"     # Green
 YELLOW="\033[1;33m"    # Bright Yellow
 NC="\033[0m"           # No Color
+
+# Display social details and channel information
+echo "==================================="
+echo -e "${YELLOW}           Web3Brothers       ${NC}"
+echo "==================================="
+echo -e "${YELLOW}Telegram: https://t.me/Web3Brothers ${NC}"
+echo -e "${YELLOW}Twitter: https://x.com/web3brothers/ ${NC}"
+echo -e "${YELLOW}YouTube: https://www.youtube.com/@Web3Brothers${NC}"
+echo "==================================="
+
+# Update VPS
+echo -e "${YELLOW}Updating VPS...${NC}"
+sudo apt-get update && sudo apt-get upgrade -y
+
 # Install prerequisites
 echo -e "${YELLOW}Installing Dependencies...${NC}"
-sudo apt install -y curl ca-certificate
+sudo apt install -y curl ca-certificates
+
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; then
     echo -e "${YELLOW}Installing Docker...${NC}"
@@ -71,3 +86,12 @@ echo -e "${YELLOW}Starting Chromium container...${NC}"
 docker-compose up -d
 
 echo -e "${YELLOW}Chromium container setup completed! You can access it via the configured ports (3050:3000, 3051:3001), e.g., http://<ipaddress>:3050.${NC}"
+
+# Thank you message
+echo "==================================="
+echo -e "${YELLOW}           Web3Brothers       ${NC}"
+echo "==================================="
+echo -e "${YELLOW}Telegram: https://t.me/Web3Brothers ${NC}"
+echo -e "${YELLOW}Twitter: https://x.com/web3brothers/ ${NC}"
+echo -e "${YELLOW}YouTube: https://www.youtube.com/@Web3Brothers${NC}"
+echo "==================================="
