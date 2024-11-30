@@ -5,6 +5,7 @@ GREEN="\033[0;32m"     # Green
 YELLOW="\033[1;33m"    # Bright Yellow
 NC="\033[0m"           # No Color
 
+
 echo "==================================="
 echo -e "${YELLOW}           CryptonodeHindi       ${NC}"
 echo "==================================="
