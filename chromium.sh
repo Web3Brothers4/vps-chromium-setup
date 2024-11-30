@@ -13,8 +13,6 @@ echo -e "${YELLOW}Telegram: https://t.me/Web3Brothers ${NC}"
 echo -e "${YELLOW}Twitter: https://x.com/web3brothers/ ${NC}"
 echo -e "${YELLOW}YouTube: https://www.youtube.com/@Web3Brothers${NC}"
 echo "==================================="
-
-# Update VPS
 echo -e "${YELLOW}Updating VPS...${NC}"
 sudo apt-get update && sudo apt-get upgrade -y
 
