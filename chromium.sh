@@ -7,11 +7,12 @@ NC="\033[0m"           # No Color
 
 # Display social details and channel information
 echo "==================================="
-echo -e "${YELLOW}           Web3Brothers       ${NC}"
+echo -e "${YELLOW}           CryptonodeHindi       ${NC}"
 echo "==================================="
-echo -e "${YELLOW}Telegram: https://t.me/Web3Brothers ${NC}"
-echo -e "${YELLOW}Twitter: https://x.com/web3brothers/ ${NC}"
-echo -e "${YELLOW}YouTube: https://www.youtube.com/@Web3Brothers${NC}"
+echo -e "${YELLOW}Telegram: https://t.me/cryptonodehindi${NC}"
+echo -e "${YELLOW}Twitter: @CryptonodeHindi${NC}"
+echo -e "${YELLOW}YouTube: https://www.youtube.com/@CryptonodesHindi${NC}"
+echo -e "${YELLOW}Medium: https://medium.com/@cryptonodehindi${NC}"
 echo "==================================="
 
 # Update VPS
@@ -89,9 +90,12 @@ echo -e "${YELLOW}Chromium container setup completed! You can access it via the 
 
 # Thank you message
 echo "==================================="
-echo -e "${YELLOW}           Web3Brothers       ${NC}"
+echo -e "${YELLOW}           CryptonodeHindi       ${NC}"
 echo "==================================="
-echo -e "${YELLOW}Telegram: https://t.me/Web3Brothers ${NC}"
-echo -e "${YELLOW}Twitter: https://x.com/web3brothers/ ${NC}"
-echo -e "${YELLOW}YouTube: https://www.youtube.com/@Web3Brothers${NC}"
+echo -e "${GREEN}    Thanks for using this script!${NC}"
 echo "==================================="
+echo -e "${YELLOW}Twitter: @CryptonodeHindi${NC}"
+echo -e "${YELLOW}YouTube: https://www.youtube.com/@CryptonodesHindi${NC}"
+echo -e "${YELLOW}Medium: https://medium.com/@cryptonodehindi${NC}"
+echo -e "${YELLOW}Join our Telegram for any support: https://t.me/cryptonodehindi${NC}"
+echo "======================================================================"
