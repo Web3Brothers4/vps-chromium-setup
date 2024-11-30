@@ -5,20 +5,9 @@ GREEN="\033[0;32m"     # Green
 YELLOW="\033[1;33m"    # Bright Yellow
 NC="\033[0m"           # No Color
 
-# Display social details and channel information
-echo "==================================="
-echo -e "${YELLOW}           Web3Brothers       ${NC}"
-echo "==================================="
-echo -e "${YELLOW}Telegram: https://t.me/Web3Brothers ${NC}"
-echo -e "${YELLOW}Twitter: https://x.com/web3brothers/ ${NC}"
-echo -e "${YELLOW}YouTube: https://www.youtube.com/@Web3Brothers${NC}"
-echo "==================================="
-echo -e "${YELLOW}Updating VPS...${NC}"
-sudo apt-get update && sudo apt-get upgrade -y
-
 # Install prerequisites
 echo -e "${YELLOW}Installing Dependencies...${NC}"
-sudo apt install -y curl ca-certificates
+sudo apt install -y curl ca-certificates jq
 
 # Check if Docker is installed
 if ! command -v docker &> /dev/null; then
@@ -35,8 +24,8 @@ fi
 # Check if Docker Compose is installed
 if ! command -v docker-compose &> /dev/null; then
     echo -e "${YELLOW}Installing Docker Compose...${NC}"
-    VER=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep tag_name | cut -d '"' -f 4)
-    curl -L "https://github.com/docker/compose/releases/download/$VER/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    VER=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)
+    sudo curl -L "https://github.com/docker/compose/releases/download/$VER/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     docker-compose --version
 else
@@ -65,8 +54,8 @@ services:
       - PUID=1000  # User ID for file permissions
       - PGID=1000  # Group ID for file permissions
       - TZ=Europe/Berlin  # Adjust timezone
-      - CUSTOM_USER=${custom_user}  # Set your own username
-      - PASSWORD=${password}  # Set your password
+      - CUSTOM_USER="${custom_user}"  # Set your own username
+      - PASSWORD="${password}"  # Set your password
       - CHROME_CLI=https://www.google.com  # Optional: Default starting page
     ports:
       - "3050:3000"  # Adjust ports if necessary
@@ -74,7 +63,7 @@ services:
     security_opt:
       - seccomp:unconfined
     volumes:
-      - ~/chromium/config:/config  # Config directory for Chromium
+      - /home/$(whoami)/chromium/config:/config  # Config directory for Chromium
     shm_size: "1gb"  # Prevents crashes by giving the container enough shared memory
     restart: unless-stopped  # Automatically restart on failures or reboots
 EOF
@@ -84,12 +73,3 @@ echo -e "${YELLOW}Starting Chromium container...${NC}"
 docker-compose up -d
 
 echo -e "${YELLOW}Chromium container setup completed! You can access it via the configured ports (3050:3000, 3051:3001), e.g., http://<ipaddress>:3050.${NC}"
-
-# Thank you message
-echo "==================================="
-echo -e "${YELLOW}           Web3Brothers       ${NC}"
-echo "==================================="
-echo -e "${YELLOW}Telegram: https://t.me/Web3Brothers ${NC}"
-echo -e "${YELLOW}Twitter: https://x.com/web3brothers/ ${NC}"
-echo -e "${YELLOW}YouTube: https://www.youtube.com/@Web3Brothers${NC}"
-echo "==================================="
